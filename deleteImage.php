@@ -5,7 +5,7 @@ include('./dbConfig.php');
 $targetDirectory = 'images/';
 $imageId = $_GET['id'];
 
-if(!empty($imageId)) {
+if (!empty($imageId)) {
     $sql = "SELECT file_name FROM images WHERE id = " . $imageId;
 
     $sth = $db->prepare($sql);
@@ -14,10 +14,10 @@ if(!empty($imageId)) {
 
     $deleteImage = unlink($targetDirectory . $getImageName['file_name']);
 
-    if($deleteImage) {
+    if ($deleteImage) {
         $deleteRecord = $db->query("DELETE FROM images WHERE id = " . $imageId);
 
-        if($deleteRecord) {
+        if ($deleteRecord) {
             header('Location:' . './html/index.php', true, 303);
             exit();
         }

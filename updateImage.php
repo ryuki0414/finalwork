@@ -1,6 +1,7 @@
 <?php
 
 include('./dbConfig.php');
+var_dump('アップデート');
 
 $targetDirectory = 'images/';
 $fileName = basename($_FILES["file"]["name"]);
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($fileName)) {
         if ($deleteImage) {
             $uploadImageForServer = move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath);
 
-            if($uploadImageForServer) {
+            if ($uploadImageForServer) {
                 $update = $db->query("UPDATE images SET file_name = '" . $fileName . "' WHERE id = " . $imageId);
 
                 header('Location: ' . './html/index.php', true, 303);

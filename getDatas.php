@@ -8,15 +8,15 @@ if (strpos($uri, 'imageDetail.php') !== false) {
     $sth = $db->prepare($sql);
     $sth->execute();
     $data['image'] = $sth->fetch();
-    
-    $sql2 = "SELECT * FROM comments WHERE image_id = " . $imageId . " ORDER BY create_date DESC";
+
+    $sql2 = "SELECT * FROM comments WHERE image_id = " . $imageId . " ORDER BY create_date ASC";
 
     $sth = $db->prepare($sql2);
     $sth->execute();
     $data['comments'] = $sth->fetchAll();
-    $countComment = count($data['comments']);   
+    $countComment = count($data['comments']);
 } else {
-    $sql = "SELECT * FROM images ORDER BY create_date DESC";
+    $sql = "SELECT * FROM images ORDER BY create_date ASC";
 
     $sth = $db->prepare($sql);
     $sth->execute();
