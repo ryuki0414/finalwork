@@ -9,3 +9,20 @@ try {
 } catch (\Throwable $th) {
     exit();
 }
+
+
+// デプロイ環境のデータベース接続
+// $host = 'サーバーのホスト名またはIPアドレス';
+// $dbname = 'データベース名';
+// $username = 'データベースユーザー名';
+// $password = 'データベースパスワード';
+// $charset = 'utf8';
+
+// try {
+//     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $username, $password);
+//     // データベース接続成功時の処理
+// } catch (PDOException $e) {
+//     echo "データベース接続エラー: " . $e->getMessage();
+//     exit();
+// }
+
